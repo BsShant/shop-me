@@ -1,0 +1,31 @@
+.menuItem{
+    width: 350px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    flex: auto;
+    margin-right: 20px;
+
+    &:hover .backgroundImage{
+        transform: scale(1.3);
+    }
+    .menuInfo{
+        background-color: grey;
+        padding: 8px 30px;
+        text-align: center;
+        position: absolute;
+    }
+
+    .backgroundImage{
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size:  cover;
+        transition: cubic-bezier(0.6, -0.08, 0.735, 0.045) 2s;
+    }
+}

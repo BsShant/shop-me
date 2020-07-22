@@ -1,5 +1,15 @@
 .App {
-  text-align: center;
+  width: 92%;
+  margin: auto;
+  
+}
+*{
+  box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
 }
 
 .App-logo {

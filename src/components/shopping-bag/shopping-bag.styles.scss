@@ -1,0 +1,22 @@
+.shopping-bag{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+        .cart-icon{
+            height: 30px;
+            width: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .total-item{
+            position: absolute;
+            bottom: 2px;
+        }
+}
+
+
+

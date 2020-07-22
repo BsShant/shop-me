@@ -1,0 +1,30 @@
+.checkout-items{
+  
+    display: flex;
+  
+    padding: 6px;
+    border-bottom: 1px solid black;
+    align-items: center;
+    :not(:last-child){
+        width: 23%;
+    }
+
+    .item-image{
+        img{
+        width: 100%;
+       
+        }
+    }
+    .item-quantity{
+        display: flex;
+
+        div{
+            cursor: pointer;
+        }
+    }
+    .item-remove{
+        cursor: pointer;
+    }
+    
+
+}

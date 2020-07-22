@@ -1,0 +1,21 @@
+.checkout-page{
+
+    .checkout-item-conatiner{
+        display: flex;
+        width: 50%;
+        margin: auto;
+        flex-direction: column;
+        .checkout-items-title{
+            display: flex;
+            border-bottom: 1px solid black;
+            justify-content: space-between;
+            padding: 6px;
+        
+        }
+        .total-price{
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+    
+}

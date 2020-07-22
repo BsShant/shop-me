@@ -1,0 +1,30 @@
+.shop-item{
+    
+    align-items: center;
+    justify-content: center;
+
+    .item-image{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+    
+
+         .add-to-cart{
+            position: absolute;
+            width: 100%;
+            background: grey;
+            height: 20%;
+            /* text-align: center; */
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            visibility: hidden;
+        }
+    }
+    &:hover .add-to-cart{
+        visibility: visible;
+        cursor: pointer;
+    } 
+}

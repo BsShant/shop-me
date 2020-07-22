@@ -1,26 +1,79 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+ 
+  Redirect
+} from "react-router-dom";
+
+
+import Homepage from './pages/homepage/homepage.pages';
+import Header from './components/header/header.component';
+import Shop from './pages/shop/shop.component';
+import Login from './pages/login/login.page';
+import { auth, createUserProfile } from './firebase/firebase.utils';
+import {setLoggedUser} from './store/action/index.action';
+import Checkout from './pages/checkout/checkout.page';
+import ItemPage from "./pages/item-page/item.page";
+
+import {connect} from 'react-redux';
+
+class App extends Component {
+  
+componentDidMount(){
+    auth.onAuthStateChanged( async authUser => {
+    
+        if(authUser){
+            console.log("user",authUser)
+            const userRef = await createUserProfile(authUser)
+
+        userRef.onSnapshot(snap =>{
+            console.log(snap.data())
+           
+            this.props.setLoggedUser({
+              id: snap.id,
+              ...snap.data()
+            })
+    })
+  }
+         else {
+             console.log("noUser")
+          this.props.setLoggedUser(authUser)
+        }
+      });
+}
+
+  render(){return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <Router>
+
+      <Header/>
+        <Switch>
+        
+          <Route path='/shop' children={<Shop />} />
+          <Route path='/Login' render={()=> this.props.loggedUser? <Redirect to="/"/>: <Login />} />
+          
+            <Route exact path='/' children={<Homepage />} />
+            <Route exact path='/checkout' children={<Checkout />} />
+            
+
+        </Switch>
+      </Router>
+     
     </div>
   );
 }
+}
+const mapConnectToProps = state =>({
+  loggedUser: state.user.loggedUser
+})
+const mapDispatchToProps = dispatch =>({
+  setLoggedUser : user => dispatch(setLoggedUser(user))
+})
 
-export default App;
+export default connect(mapConnectToProps,mapDispatchToProps)(App);
