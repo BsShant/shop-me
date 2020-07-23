@@ -1,6 +1,5 @@
 import React from 'react';
 import './shop.style.scss';
-import shopData from './shop-data';
 import ShopList from '../../components/shop-list/shop-list.component';
 import {
     BrowserRouter as Router,
@@ -10,14 +9,11 @@ import {
     Redirect
   } from "react-router-dom";
   import ItemPage from '../item-page/item.page';
-
-
+  import { connect } from 'react-redux';
+  import { shopData } from '../../store/selectors/shopData.selector';
 
 const Shop = (props) =>{
     const {path} = useRouteMatch();
-
-
-        
         return(
             <div className="shop">
                 
@@ -25,7 +21,7 @@ const Shop = (props) =>{
                     <Route exact path={`${path}`} >
                     {
                 
-                         shopData.map(list =>
+                         props.shopData.map(list =>
                             <ShopList key={list.id} title={list.title} route={list.routeName} item={list.items}/>
 
                              )
@@ -33,7 +29,7 @@ const Shop = (props) =>{
                         
                     </Route>
                     <Route path={`${path}/:category`}>
-                    <ItemPage collection={shopData}/>
+                    <ItemPage />
                     </Route>
 
                 </Switch>
@@ -42,4 +38,8 @@ const Shop = (props) =>{
         )
     
 }
-export default Shop;
+
+const mapStateToProps = state => ({
+    shopData: shopData(state)
+})
+export default connect(mapStateToProps)(Shop);
