@@ -17,14 +17,17 @@ import {connect} from 'react-redux';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 
 import { createStructuredSelector} from 'reselect';
-import {loggedUser} from '../../store/selectors/user.selector';
+import {loggedUser, userDropdown} from '../../store/selectors/user.selector';
 import { toggleCartDropdown} from '../../store/selectors/cart.selector';
+import { toggleUserDropdown} from '../../store/action/user.action';
+import { cartDropdown } from '../../store/action/cart.action';
+import UserDropdown from '../userDropdown/user-dropdown.component';
 
 
 
 
 const Header = (props) =>{
-    
+    const history = useHistory()
 
   
         return (
@@ -39,20 +42,31 @@ const Header = (props) =>{
                 <div className="nav-bar">
 
 
-                    <Link to="/shop">shop</Link>
+                    <Link to="/shop" className="nav-item">shop</Link>
                     {
                         props.loggedUser? 
-                        (<p onClick={()=> auth.signOut()}>{props.loggedUser.displayName}</p>)
-                        : <Link to="/Login">Login</Link>
+                        (<div className="nav-item user-item">
+                            <a onClick={props.toggleUserDropdown}   className="display-user">{props.loggedUser.displayName.charAt(0)}</a>
+                            {
+                                props.toggleUser?
+                                <UserDropdown />
+                                :
+                                null
+                            }
+                            </div>)
+                        : <Link to="/signIn" className="nav-item">signIn</Link>
                     }
-                    <ShoppingBag/>
-                    {
+                    <div className="nav-item shop-bag">
+                        <ShoppingBag/>
+                        {
                         props.toggleCartDropdown? 
                                 <CartDropdown />
                                 :
                                 null
-                    }
+                        }
 
+                        </div>
+                    
                     
         
 
@@ -66,8 +80,12 @@ const Header = (props) =>{
 
     const mapStateToProps = createStructuredSelector({
         loggedUser: loggedUser,
-        toggleCartDropdown: toggleCartDropdown
+        toggleCartDropdown: toggleCartDropdown,
+        toggleUser: userDropdown
     })
-    
+    const mapDispatchToProps = dispatch =>({
+        toggleUserDropdown : ( )=> dispatch(toggleUserDropdown()),
+        cartDropdown: () => dispatch(cartDropdown())
+    })
 
-export default connect(mapStateToProps, null)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

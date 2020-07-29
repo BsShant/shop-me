@@ -1,0 +1,16 @@
+.user-dropdown{
+    padding: 10px 5px;
+    width: 100px;
+    border: 1px solid grey;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    background-color: white;
+    bottom: -140px;
+align-items: center;
+left: -65px;
+p{
+cursor: pointer;
+}
+}

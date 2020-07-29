@@ -1,15 +1,15 @@
 import React from 'react';
-import './login.styles.scss';
+import './signIn.styles.scss';
 import {signInWithGoogle, auth, signOut} from '../../firebase/firebase.utils';
 import InputField from '../../components/inputField/inputField.component'; 
 import CustomButton from '../../components/customButton/customButton.component'; 
 
-import SignIn from '../../components/signIn/signIn.component';
+import Login from '../../components/login/login.component';
 import Register from '../../components/register/register.component';
 
 import { prettyDOM } from '@testing-library/react';
 
-class Login extends React.Component{
+class SignIn extends React.Component{
     constructor(props){
         super(props);
         this.state={
@@ -40,7 +40,7 @@ class Login extends React.Component{
     render(){
         return(
         <div className="signin-page">
-            <SignIn />
+            <Login />
             <Register />
          </div>
         
@@ -50,4 +50,4 @@ class Login extends React.Component{
 
     
 }
-export default Login;
+export default SignIn;

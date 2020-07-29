@@ -45,11 +45,13 @@ class Register extends React.Component{
 
     render(){
         return(
-        <div>
+        <div className="register">
             <form onSubmit={this.onFormSubmit}>
-            <InputField handleChange={this.handleChange} label="Name" name="displayName" type="text"/>  
-            <InputField handleChange={this.handleChange} label="Email" name="email" type="email"/>
-            <InputField handleChange={this.handleChange} label="Password" name="password" type="password"/>
+            <h2>I don't have an account</h2>
+            <p>Register your new account</p>
+            <InputField handleChange={this.handleChange} label="Name" name="displayName" type="text" value={this.state.displayName}/>  
+            <InputField handleChange={this.handleChange} label="Email" name="email" type="email" value={this.state.email}/>
+            <InputField handleChange={this.handleChange} label="Password" name="password" type="password" value={this.state.password}/>
             <CustomButton>Register</CustomButton>
           
             

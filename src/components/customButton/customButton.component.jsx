@@ -2,10 +2,10 @@ import React from  'react';
 import './customButton.styles.scss';
 
 
-const CustomButton = ({children, ...others}) =>{
+const CustomButton = ({children,google, ...others}) =>{
     return(
         
-            <button className="custom-button" {...others}>
+            <button className= {`custom-button ${google? "google-button": ''}`} {...others}>
                 {children}
             </button>
             

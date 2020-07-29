@@ -6,6 +6,8 @@ import {cartDropdown} from '../../store/action/index.action';
 import {totalCartItems} from '../../store/selectors/cart.selector';
 
 const ShoppingBag = (props) =>{
+
+    
     return(
         <div className="shopping-bag" onClick={props.cartDropdown}>
             <CartIcon className="cart-icon" />

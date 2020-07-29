@@ -2,15 +2,66 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 50px;
 
     .nav-bar{
         display: flex;
         justify-content: flex-end;
         align-items: center;
         position: relative;
+        .nav-item{
+            padding: 0 15px;
+        }
+        .user-item{
 
-        p{
-            padding: 10px;
+            position: relative;
+                &:focus{
+                    outline: none;
+                }
+            .display-user{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            border: 1px solid black;
+
+            &:focus{
+                outline: none;
+            }
+        }
+        .user-dropdown{
+            padding: 10px 5px;
+            width: 100px;
+            border: 1px solid grey;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            z-index: 1;
+            background-color: white;
+            bottom: -140px;
+    align-items: center;
+    left: -65px;
+    p{
+        cursor: pointer;
+    }
+
+            a{
+                background-color: grey;
+                &:hover{
+                    background-color: whitesmoke;
+                }
+            }
+         }
+     }
+        
+
+        .shop-bag{
+            position: relative;
+            &:focus{
+                outline: none;
+            }
         }
     }
 }

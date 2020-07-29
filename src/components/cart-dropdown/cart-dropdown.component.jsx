@@ -15,13 +15,27 @@ import {
 }
     from 'react-router-dom';
 import { cartItem } from '../../store/selectors/cart.selector';
+import { useRef } from 'react';
+
 
 
 const CartDropdown = (props) =>{
     
+        const handleDropdown = (event) =>{
+        if(dropdown.current && !dropdown.current.contains(event.target)){
+            props.toggleCartDropdown();
+        }
+    }
+    React.useEffect( () =>{
+        window.addEventListener('mousedown', handleDropdown)
+
+        return () => window.removeEventListener('mousedown', handleDropdown)
+    }, [])
+
 const history = useHistory();
+const dropdown = useRef(null)
     return(
-        <div className="cart-dropdown" >
+        <div className="cart-dropdown" ref={dropdown}>
             <div className="cart-dropdown-list">
             
                 {
@@ -44,7 +58,7 @@ const history = useHistory();
             <Checkout 
             onClick={() =>
             {history.push('/checkout')
-            return props.dispatch(cartDropdown())}}>
+            return props.toggleCartDropdown()}}>
                 Checkout</Checkout>
         </div>
         
@@ -54,5 +68,8 @@ const history = useHistory();
 const mapStateToProps = state =>({
     items: cartItem(state)
 })
+const mapDispatchToProps = dispatch =>({
+    toggleCartDropdown : () => dispatch(cartDropdown())
+})
 
-export default connect(mapStateToProps)(CartDropdown);
+export default connect(mapStateToProps, mapDispatchToProps)(CartDropdown);

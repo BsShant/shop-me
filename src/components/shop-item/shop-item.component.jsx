@@ -7,8 +7,14 @@ const ShopItem = ({item, shopItem}) =>{
    
     return(
         <div className="shop-item">
-            <div className="item-image">
-                <img src={item.imageUrl} alt="item_image"/>
+            <div className="item-image"
+            >
+               <div className="item-box"
+               style={
+                {
+                     backgroundImage: `url(${item.imageUrl})`
+                 }
+             }></div>
                 <div className="add-to-cart" onClick={() =>shopItem(item)}>Add To Cart</div>
             </div>
             
