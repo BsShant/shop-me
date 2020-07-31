@@ -55,8 +55,12 @@ const dropdown = useRef(null)
             
             </div>
             
-            <Checkout 
-            onClick={() =>
+            <Checkout style={
+                {
+                    boxShadow: `1px 5px 2px rgba(0,0,0,0.5)`
+                }
+            }
+            onMouseUp={() =>
             {history.push('/checkout')
             return props.toggleCartDropdown()}}>
                 Checkout</Checkout>

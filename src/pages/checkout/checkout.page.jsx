@@ -37,7 +37,15 @@ const Checkout = (props) =>{
                </div>
                 
             </div>
-            <form action="https://uat.esewa.com.np/epay/main" method="POST">
+                   <div className="payment"
+                   >
+                       <h3>Pay Using <span>E-SEWA</span></h3>
+                       <div className="test-credentials">
+                       <h4>Test Credentials</h4>
+                       <p>eSewa ID: test1@esewa.com.np</p>
+                        <p>Password: test12</p>
+                       </div>
+                        <form action="https://uat.esewa.com.np/epay/main" method="POST">
     <input value={totalPay} name="tAmt" type="hidden" />
     <input value={total} name="amt" type="hidden" />
     <input value={tax} name="txAmt" type="hidden" />
@@ -47,9 +55,10 @@ const Checkout = (props) =>{
     <input value="ee2c3ca1-696b-4cc5-a6be-2c40d929d453" name="pid" type="hidden" />
     <input value="http://merchant.com.np/page/esewa_payment_success?q=su" type="hidden" name="su" />
     <input value="http://merchant.com.np/page/esewa_payment_failed?q=fu" type="hidden" name="fu" />
-   
     <button type="submit" className="esewa-button"><img src="https://uat.esewa.com.np/images/esewa-logo.png" /></button>
     </form>
+                   </div>
+            
             
         </div>
     )

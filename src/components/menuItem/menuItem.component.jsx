@@ -27,8 +27,8 @@ const MenuItems = ( props ) =>{
                 }
             }/>
             <div className="menuInfo">
-                <h1>{props.title.toUpperCase()}</h1>
-                <h3>Shop Now</h3>
+                <h3>{props.title.toUpperCase()}</h3>
+                <p>Shop Now</p>
             </div>
         </div>
         

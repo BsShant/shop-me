@@ -1,9 +1,11 @@
-import {SET_LOGGED_USER, TOGGLE_USER_DROPDOWN} from '../action/actionTypes';
+import {SET_LOGGED_USER, TOGGLE_USER_DROPDOWN, CHOOSE_FILE} from '../action/actionTypes';
 import { toggleUserDropdown } from '../action/user.action';
 
 const INITIAL_STATE ={
     loggedUser: null,
-    toggleUserDropdown: false
+    file: null,
+    toggleUserDropdown: false,
+    
 }
 
 const userReducer = (state = INITIAL_STATE, action) =>{
@@ -18,6 +20,11 @@ const userReducer = (state = INITIAL_STATE, action) =>{
                 ...state,
                 toggleUserDropdown: !state.toggleUserDropdown
             }
+            case CHOOSE_FILE:
+                return{
+                    ...state,
+                    file: action.payload
+                }
         default:
             return state;
     }

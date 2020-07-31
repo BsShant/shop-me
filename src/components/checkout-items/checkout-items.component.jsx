@@ -14,7 +14,7 @@ const CheckoutItems = (props) =>{
     <div className="increase-quantity" onClick={()=> props.shopItem(props.item)}>❯</div>
     </div>
     <div className="item-price">${props.item.price}</div>
-            <div className="item-remove" onClick={()=>props.removeItem(props.item)}>&#9747;</div>
+            <div className="item-remove" onClick={()=>props.removeItem(props.item)}>&#10005;</div>
         </div>
     )
 }

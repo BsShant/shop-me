@@ -1,5 +1,5 @@
 @mixin shrink {
-    transform: translate(0,-20px);
+    transform: translate(0,-28px);
             font-size: 0.8rem;
             opacity: 1;
 }
@@ -11,12 +11,15 @@
     display: flex;
     align-items: center;
     padding: 20px 0;
+    margin-bottom: 30px;
     
     .input{
         border: none;
         border-bottom: 1px solid black;
         width: 100%;
         padding: 10px 10px 10px 6px;
+        font-family: 'Archivo Narrow', sans-serif;
+        
         &:focus{
             outline: none;
         }
@@ -28,7 +31,10 @@
     .label{
         position: absolute;
         left: 6px;
-        opacity: 0.7;
+        opacity: 0.6;
+        
+        font-family: 'Oswald', sans-serif;
+        //font-family: 'Playball', cursive;
 
         &.shrink{
             @include shrink;

@@ -32,11 +32,11 @@ const history = useHistory()
     return(
         
             <div className="user-dropdown" ref={dropdown}>
-                                    <p onClick= {()=> {
+                                    <a className="user-dropdown-items" onClick= {()=> {
                                         history.push('./profile')
-                                        props.dispatch(toggleUserDropdown())}}>Profile</p>
-                                    <p onClick={() => {auth.signOut()
-                                     props.dispatch(toggleUserDropdown())}}>Logout</p>
+                                        props.dispatch(toggleUserDropdown())}}>Profile</a>
+                                    <a className="user-dropdown-items"onClick={() => {auth.signOut()
+                                     props.dispatch(toggleUserDropdown())}}>Logout</a>
 
                                 </div>
     )

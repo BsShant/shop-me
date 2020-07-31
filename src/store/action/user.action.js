@@ -1,4 +1,4 @@
-import {SET_LOGGED_USER, TOGGLE_USER_DROPDOWN} from './actionTypes';
+import {SET_LOGGED_USER, TOGGLE_USER_DROPDOWN, CHOOSE_FILE} from './actionTypes';
 
 
 export const setLoggedUser = (user) =>{
@@ -10,5 +10,12 @@ export const setLoggedUser = (user) =>{
 export const toggleUserDropdown = () =>{
     return{
         type: TOGGLE_USER_DROPDOWN
+    }
+}
+export const chooseFile = (file) =>{
+    console.log("files dispatched",file)
+    return{
+        type: CHOOSE_FILE,
+        payload: file
     }
 }

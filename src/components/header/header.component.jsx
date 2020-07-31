@@ -12,6 +12,7 @@ import {
     useHistory
 }
     from 'react-router-dom';
+    import casual from '../../images/casual.jpg';
 import { auth} from '../../firebase/firebase.utils';
 import {connect} from 'react-redux';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
@@ -22,6 +23,7 @@ import { toggleCartDropdown} from '../../store/selectors/cart.selector';
 import { toggleUserDropdown} from '../../store/action/user.action';
 import { cartDropdown } from '../../store/action/cart.action';
 import UserDropdown from '../userDropdown/user-dropdown.component';
+import { storageRef} from '../../firebase/firebase.utils';
 
 
 
@@ -29,7 +31,6 @@ import UserDropdown from '../userDropdown/user-dropdown.component';
 const Header = (props) =>{
     const history = useHistory()
 
-  
         return (
 
             <div className="header">
@@ -40,13 +41,31 @@ const Header = (props) =>{
                     <Link to="/"><img src={logo} alt="Logo" /></Link>
                 </div>
                 <div className="nav-bar">
-
+                    
 
                     <Link to="/shop" className="nav-item">shop</Link>
                     {
                         props.loggedUser? 
                         (<div className="nav-item user-item">
-                            <a onClick={props.toggleUserDropdown}   className="display-user">{props.loggedUser.displayName.charAt(0)}</a>
+                            <div onClick={props.toggleUserDropdown}   className="display-user" style={
+                                {
+                                    backgroundColor : `${props.loggedUser.color}`
+                                }
+                            }>
+                                
+                                {
+                                   props.loggedUser.profileImage?
+                                   <img src={props.loggedUser.profileImage} alt="profile" style={
+                                       {
+                                           width: "100%",
+                                           borderRadius: '50%',
+                                           height: '100%'
+                                       }
+                                   } />
+                                   :
+                                props.loggedUser.displayName.charAt(0)
+                                }
+                            </div>
                             {
                                 props.toggleUser?
                                 <UserDropdown />
@@ -66,6 +85,7 @@ const Header = (props) =>{
                         }
 
                         </div>
+
                     
                     
         

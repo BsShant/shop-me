@@ -6,11 +6,22 @@
     display: flex;
     flex-direction: column;
     z-index: 1;
+    justify-content: center;
     background-color: white;
-    bottom: -140px;
+    bottom: -115px;
 align-items: center;
 left: -65px;
-p{
-cursor: pointer;
-}
+height: 100px;
+    .user-dropdown-items{
+        margin-bottom: 10px;
+         &:hover{
+             border-bottom: 1px solid grey;
+             color: grey;
+         }
+         &:active{
+             font-size: 0.87rem;
+             
+         }
+
+    }
 }

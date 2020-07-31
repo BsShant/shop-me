@@ -23,10 +23,17 @@ const ItemPage = (props) =>{
     // const items = shopItems.map(shopItem =>{
     //     return shopItem.items
     // })
-   
+   console.log(shopItems)
     
     return(
-        <div className="items-container">
+        <div>
+            <h1 style = {
+                {
+                    textAlign : 'center',
+                    fontFamily: `'Lobster', cursive`
+                }
+            }>{shopItems[0].title.toUpperCase()}</h1>
+            <div className="items-container">
             
             {
                 shopItems.map(shopItem =>
@@ -35,6 +42,8 @@ const ItemPage = (props) =>{
                 )
             }
         </div>
+        </div>
+        
         
         
     )

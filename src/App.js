@@ -65,7 +65,7 @@ componentDidMount(){
           
             <Route exact path='/' children={<Homepage />} />
             <Route exact path='/checkout' children={<Checkout />} />
-            <Route exact path ='/profile' children={<Profile />}/>
+            <Route exact path ='/profile' render={()=> this.props.loggedUser? <Profile /> :<Redirect to="/signIn"/>}/>
                
             
 

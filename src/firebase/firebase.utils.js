@@ -1,6 +1,8 @@
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import 'firebase/storage';
+import casual from '../images/casual.jpg'
 
 
 var firebaseConfig = {
@@ -15,13 +17,21 @@ var firebaseConfig = {
   };
 var app = firebase.initializeApp(firebaseConfig);
 //firebase.analytics();
-//var storage = firebase.storage();
+var storage = firebase.storage();
+export const storageRef = firebase.storage().ref();
+const file = casual
+const metadata= {
+  contentType: 'image/jpeg'
+}
+
+
+
 export const auth = firebase.auth();
 
 export const firestore = firebase.firestore();
 
 
-const user = firestore.collection("users");
+export const user = firestore.collection("users");
 export const createUserProfile = async (authUser, additional) =>{
 
                 const {uid} = authUser;
@@ -39,6 +49,7 @@ export const createUserProfile = async (authUser, additional) =>{
                 email,
                 displayName,
                 date,
+                color: '#'+Math.random().toString(16).substr(-6),
                 ...additional
             })
             } catch(error){
