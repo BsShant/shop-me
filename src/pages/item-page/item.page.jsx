@@ -16,10 +16,6 @@ const ItemPage = (props) =>{
         
         return category=== item.routeName 
     })
-    // const items = shopItems.map(shopItem =>{
-    //     return shopItem.items
-    // })
-   console.log(shopItems)
     
     return(
         <div>
@@ -33,7 +29,7 @@ const ItemPage = (props) =>{
             
             {
                 shopItems.map(shopItem =>
-                    shopItem.items.map(item =><ShopItem item={item} />
+                    shopItem.items.map(item =><ShopItem key={item.id} item={item} />
                     )
                 )
             }

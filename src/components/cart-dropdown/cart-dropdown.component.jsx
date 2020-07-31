@@ -34,7 +34,7 @@ const dropdown = useRef(null)
                    
                     props.items.map(item =>{
                      
-                       return <CartItem item={item}/>
+                       return <CartItem key={item.id} item={item}/>
                     })
                     :
                     <p>cart is empty</p>

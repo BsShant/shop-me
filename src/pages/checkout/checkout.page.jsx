@@ -23,7 +23,7 @@ const Checkout = (props) =>{
                 </div>
                {
                    props.items.map(item=>{
-                        return <CheckoutItems item={item} />
+                        return <CheckoutItems key={item.id} item={item} />
                    })
                }
                <div className="total-price">

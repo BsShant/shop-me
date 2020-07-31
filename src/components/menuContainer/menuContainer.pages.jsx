@@ -12,7 +12,7 @@ const MenuContainer= (props)  =>{
             <div className="menuContainer">
                 {
                     props.menuItems.map(menuItem =>
-                        <MenuItem key={menuItem.key} {...menuItem}/>
+                        <MenuItem key={menuItem.id} {...menuItem}/>
                         )
                 }
             </div>

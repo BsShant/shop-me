@@ -31,12 +31,10 @@ componentDidMount(){
     auth.onAuthStateChanged( async authUser => {
     
         if(authUser){
-            console.log("user",authUser)
             const userRef = await createUserProfile(authUser)
 
         userRef.onSnapshot(snap =>{
-            console.log(snap.data())
-           
+            
             this.props.setLoggedUser({
               id: snap.id,
               ...snap.data()
@@ -44,7 +42,6 @@ componentDidMount(){
     })
   }
          else {
-             console.log("noUser")
           this.props.setLoggedUser(authUser)
         }
       });

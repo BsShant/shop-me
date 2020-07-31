@@ -43,8 +43,8 @@ const Header = (props) =>{
                             }>
                                 
                                 {
-                                   props.loggedUser.profileImage?
-                                   <img src={props.loggedUser.profileImage} alt="profile" style={
+                                   props.loggedUser.photoURL?
+                                   <img src={props.loggedUser.photoURL} alt="profile" style={
                                        {
                                            width: "100%",
                                            borderRadius: '50%',

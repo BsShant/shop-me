@@ -13,7 +13,7 @@ export const toggleUserDropdown = () =>{
     }
 }
 export const chooseFile = (file) =>{
-    console.log("files dispatched",file)
+  
     return{
         type: CHOOSE_FILE,
         payload: file

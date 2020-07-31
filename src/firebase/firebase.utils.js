@@ -37,7 +37,12 @@ export const createUserProfile = async (authUser, additional) =>{
     
     
         if(!snapShot.exists){
+            var photoURL=''
             const {email, displayName} =  authUser;
+            authUser.photoURL?
+            photoURL = authUser.photoURL
+            :
+            photoURL= ''
             const date = new Date();
             try{
               await usersRef.set({
@@ -45,7 +50,7 @@ export const createUserProfile = async (authUser, additional) =>{
                 displayName,
                 date,
                 color: '#'+Math.random().toString(16).substr(-6),
-                ...additional
+                photoURL
             })
             } catch(error){
                 console.log(error)
@@ -64,6 +69,9 @@ export const signOut = () => auth.signOut();
     
 //   });
   export const signInWithGoogle = () => auth.signInWithPopup(provider);
+
+
+  
 
 
   export default firebase;

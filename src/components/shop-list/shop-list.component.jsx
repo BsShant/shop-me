@@ -17,7 +17,7 @@ const history = useHistory()
                 <div className="list-item">
                 {
                     props.item.filter((item, indx) => indx < 4).map(item =>
-                        <ShopItem  item={item} />
+                        <ShopItem key={item.id} item={item} />
                     )
                 }
                 </div>
