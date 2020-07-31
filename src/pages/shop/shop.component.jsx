@@ -2,11 +2,9 @@ import React from 'react';
 import './shop.style.scss';
 import ShopList from '../../components/shop-list/shop-list.component';
 import {
-    BrowserRouter as Router,
     Switch,
     Route,
    useRouteMatch,
-    Redirect
   } from "react-router-dom";
   import ItemPage from '../item-page/item.page';
   import { connect } from 'react-redux';

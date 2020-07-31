@@ -1,10 +1,8 @@
 import React from 'react';
 import './register.styles.scss';
-import {signInWithGoogle, auth, signOut, createUserProfile} from '../../firebase/firebase.utils';
+import {auth, createUserProfile} from '../../firebase/firebase.utils';
 import InputField from '../inputField/inputField.component'; 
 import CustomButton from '../customButton/customButton.component'; 
-
-import { prettyDOM } from '@testing-library/react';
 
 class Register extends React.Component{
     constructor(props){

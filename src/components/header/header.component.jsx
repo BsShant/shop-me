@@ -3,17 +3,8 @@ import './header.style.scss';
 import logo from '../../images/logo.svg';
 import ShoppingBag from '../shopping-bag/shopping-bag.component';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    useParams,
-    useRouteMatch,
-    useHistory
-}
-    from 'react-router-dom';
-    import casual from '../../images/casual.jpg';
-import { auth} from '../../firebase/firebase.utils';
+    Link
+} from 'react-router-dom';
 import {connect} from 'react-redux';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 
@@ -23,13 +14,11 @@ import { toggleCartDropdown} from '../../store/selectors/cart.selector';
 import { toggleUserDropdown} from '../../store/action/user.action';
 import { cartDropdown } from '../../store/action/cart.action';
 import UserDropdown from '../userDropdown/user-dropdown.component';
-import { storageRef} from '../../firebase/firebase.utils';
 
 
 
 
 const Header = (props) =>{
-    const history = useHistory()
 
         return (
 

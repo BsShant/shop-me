@@ -4,16 +4,7 @@ import Checkout from '../customButton/customButton.component';
 import { connect} from 'react-redux';
 import CartItem from '../cart-items/cart-item.compnent';
 import { cartDropdown } from '../../store/action/index.action';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    useParams,
-    useRouteMatch,
-    useHistory
-}
-    from 'react-router-dom';
+import { useHistory }from 'react-router-dom';
 import { cartItem } from '../../store/selectors/cart.selector';
 import { useRef } from 'react';
 

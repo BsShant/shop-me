@@ -2,7 +2,6 @@ import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/storage';
-import casual from '../images/casual.jpg'
 
 
 var firebaseConfig = {
@@ -17,12 +16,8 @@ var firebaseConfig = {
   };
 var app = firebase.initializeApp(firebaseConfig);
 //firebase.analytics();
-var storage = firebase.storage();
-export const storageRef = firebase.storage().ref();
-const file = casual
-const metadata= {
-  contentType: 'image/jpeg'
-}
+export const storage = firebase.storage();
+export const storageRef = storage.ref();
 
 
 

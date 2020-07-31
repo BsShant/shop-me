@@ -1,13 +1,9 @@
 import React from 'react';
 import './item.styles.scss';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
+    
     useParams,
-    useRouteMatch,
-    useHistory
+   
   } from "react-router-dom";
   import ShopItem from '../../components/shop-item/shop-item.component';
   import { connect } from 'react-redux';

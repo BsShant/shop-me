@@ -2,12 +2,7 @@ import React, {useRef} from 'react';
 import './user-dropdown.styles.scss';
 import {toggleUserDropdown} from '../../store/action/user.action';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    useParams,
-    useRouteMatch,
+    
     useHistory
 }
     from 'react-router-dom';
@@ -24,7 +19,7 @@ const UserDropdown = (props) =>{
         window.addEventListener('mousedown', handleDropdown)
 
         return () => window.removeEventListener('mousedown', handleDropdown)
-    }, [])
+    },[])
 
 
 const dropdown = useRef(null)
@@ -32,11 +27,11 @@ const history = useHistory()
     return(
         
             <div className="user-dropdown" ref={dropdown}>
-                                    <a className="user-dropdown-items" onClick= {()=> {
+                                    <p className="user-dropdown-items" onClick= {()=> {
                                         history.push('./profile')
-                                        props.dispatch(toggleUserDropdown())}}>Profile</a>
-                                    <a className="user-dropdown-items"onClick={() => {auth.signOut()
-                                     props.dispatch(toggleUserDropdown())}}>Logout</a>
+                                        props.dispatch(toggleUserDropdown())}}>Profile</p>
+                                    <p className="user-dropdown-items"onClick={() => {auth.signOut()
+                                     props.dispatch(toggleUserDropdown())}}>Logout</p>
 
                                 </div>
     )

@@ -2,12 +2,6 @@ import React from 'react';
 import './shop-list.styles.scss';
 import ShopItem from '../shop-item/shop-item.component';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    useParams,
-    useRouteMatch,
     useHistory
 }
     from 'react-router-dom';

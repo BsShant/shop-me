@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './menuContainer.styles.scss';
 import { connect } from 'react-redux';
 import { menuItems } from '../../store/selectors/menuItems.selector';

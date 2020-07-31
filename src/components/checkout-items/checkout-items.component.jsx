@@ -6,7 +6,7 @@ import {removeItem,shopItem, decreaseItem} from '../../store/action/index.action
 const CheckoutItems = (props) =>{
     return(
         <div className="checkout-items">
-            <div className="item-image"><img src={props.item.imageUrl} alt="Item-Image" /></div>
+            <div className="item-image"><img src={props.item.imageUrl} alt="Item" /></div>
     <div className="item-name">{props.item.name}</div>
     <div className="item-quantity">
     <div className="increase-quantity" onClick={()=> props.decreaseItem(props.item)}>❮</div>

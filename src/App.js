@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import {
@@ -22,7 +21,6 @@ import SignIn from './pages/signIn/signIn.page';
 import { auth, createUserProfile } from './firebase/firebase.utils';
 import {setLoggedUser} from './store/action/index.action';
 import Checkout from './pages/checkout/checkout.page';
-import ItemPage from "./pages/item-page/item.page";
 import Profile from './pages/profile/profile.page';
 
 import {connect} from 'react-redux';

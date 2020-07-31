@@ -1,13 +1,8 @@
 import React from 'react';
-import './signIn.styles.scss';
-import {signInWithGoogle, auth, signOut} from '../../firebase/firebase.utils';
-import InputField from '../../components/inputField/inputField.component'; 
-import CustomButton from '../../components/customButton/customButton.component'; 
+import './signIn.styles.scss'; 
 
 import Login from '../../components/login/login.component';
 import Register from '../../components/register/register.component';
-
-import { prettyDOM } from '@testing-library/react';
 
 class SignIn extends React.Component{
     constructor(props){

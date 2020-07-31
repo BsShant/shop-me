@@ -1,17 +1,12 @@
 import React from 'react';
 import './profile.styles.scss';
 import {connect} from 'react-redux';
-import {loggedUser, userDropdown} from '../../store/selectors/user.selector';
-import { toggleCartDropdown} from '../../store/selectors/cart.selector';
-import {chooseFile, toggleUserDropdown} from '../../store/action/user.action';
-import { createStructuredSelector} from 'reselect';
-import {auth,user,storageRef} from '../../firebase/firebase.utils';
+import {chooseFile} from '../../store/action/user.action';
+import {user,storageRef} from '../../firebase/firebase.utils';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCamera} from '@fortawesome/free-solid-svg-icons';
 
 const Profile = (props) =>{
-
- const currentUser = auth.currentUser;
   
     const handleFile = (event) =>{
         

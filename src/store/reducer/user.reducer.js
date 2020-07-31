@@ -1,5 +1,4 @@
 import {SET_LOGGED_USER, TOGGLE_USER_DROPDOWN, CHOOSE_FILE} from '../action/actionTypes';
-import { toggleUserDropdown } from '../action/user.action';
 
 const INITIAL_STATE ={
     loggedUser: null,
