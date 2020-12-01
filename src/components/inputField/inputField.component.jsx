@@ -1,20 +1,20 @@
 import React from  'react';
-import './inputField.styles.scss';
+import { InputContainer, Input, Label } from './inputField.styles';
 
 
 const InputField = ({handleChange, label, ...others}) =>{
     return(
-        <div className="input-field">
-            <input className="input" onChange={handleChange} {...others} />
+        <InputContainer>
+            <Input onChange={handleChange} {...others} />
             {
                 label?
-                 <label className={`${others.value.length? 'shrink' : ''} label`}>{label}</label>
+                 <Label length = {others.value.length}>{label}</Label>
                  :
                  null
             
             }
             
-        </div>
+        </InputContainer>
     )
 }
 export default InputField;

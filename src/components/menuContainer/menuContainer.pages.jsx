@@ -1,5 +1,5 @@
 import React from 'react';
-import './menuContainer.styles.scss';
+import { MenuContainerField   } from './menuContainer.styles';
 import { connect } from 'react-redux';
 import { menuItems } from '../../store/selectors/menuItems.selector';
 
@@ -9,13 +9,13 @@ const MenuContainer= (props)  =>{
     
     
             return(
-            <div className="menuContainer">
+            <MenuContainerField>
                 {
                     props.menuItems.map(menuItem =>
                         <MenuItem key={menuItem.id} {...menuItem}/>
                         )
                 }
-            </div>
+            </MenuContainerField>
         )
     
    

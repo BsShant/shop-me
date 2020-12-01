@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import {shopItem} from '../../store/action/index.action';
 
 const ShopItem = ({item, shopItem}) =>{
-   
     return(
         <div className="shop-item">
             <div className="item-image"

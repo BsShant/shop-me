@@ -1,6 +1,7 @@
+import styled from 'styled-components';
 
-.cart-dropdown{
-    position: absolute;
+export const CartDropdownContainer = styled.div`
+position: absolute;
     bottom: -315px;
     left: -177px;
     height: 300px;
@@ -15,15 +16,12 @@
     flex-direction: column;
     box-sizing: border-box;
 
-    .cart-dropdown-list{
-        overflow: scroll;
-        height: 215px;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        
+`;
 
-
-        
-    }
-}
+export const CartDropdownList = styled.div`
+overflow: scroll;
+height: 215px;
+display: flex;
+align-items: center;
+flex-direction: column;
+`;

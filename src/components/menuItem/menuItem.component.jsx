@@ -1,5 +1,5 @@
 import React from 'react';
-import './menuItem.styles.scss';
+import {  MenuItemField, BackgroundImage, MenuInfo  } from './menuItem.styles';
 import {
     
     useHistory
@@ -8,24 +8,24 @@ import {
 const MenuItems = ( props ) =>{
     let history = useHistory();
     return (
-        <div className="menuItem"
+        <MenuItemField
         onClick= { () =>{
             history.push(`/${props.linkUrl}`)
 
         }}
         >
             
-            <div className="backgroundImage"
+            <BackgroundImage
             style = {
                 {
                     backgroundImage: "url(" + props.imageUrl + ")"
                 }
             }/>
-            <div className="menuInfo">
+            <MenuInfo>
                 <h3>{props.title.toUpperCase()}</h3>
                 <p>Shop Now</p>
-            </div>
-        </div>
+            </MenuInfo>
+        </MenuItemField>
         
     )
 }

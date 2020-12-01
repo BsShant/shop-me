@@ -8,36 +8,57 @@ import {
   } from "react-router-dom";
   import ItemPage from '../item-page/item.page';
   import { connect } from 'react-redux';
-  import { shopData } from '../../store/selectors/shopData.selector';
+  import { firestore, collectionSnapshotToMap } from '../../firebase/firebase.utils';
+import WithSpinner from '../../components/with-spinner/with-spinner.component';
+import { render } from '@testing-library/react';
+import shopData from './shop-data';
+import { fetchCollectionsStartAsync } from '../../store/action/shop.action';
 
-const Shop = (props) =>{
-    const {path} = useRouteMatch();
+const ItemPageWithSpinner = WithSpinner(ItemPage);
+const ShopListWithSpinner = WithSpinner(ShopList);
+
+class Shop extends React.Component{
+
+   
+    componentDidMount(){
+       this.props.fetchCollectionsStartAsync();
+    }
+
+    render(){
+       
         return(
             <div className="shop">
                 
                 <Switch>
-                    <Route exact path={`${path}`} >
+                    <Route exact path={`/shop`} >
                     {
-                
-                         props.shopData.map(list =>
-                            <ShopList key={list.id} title={list.title} route={list.routeName} item={list.items}/>
+                        Object.keys(this.props.shopData).map(key =>{
+                            const list = this.props.shopData[key];
+                            return <ShopListWithSpinner isLoading={this.props.isFetching} key={list.id} title={list.title} route={list.routeName} item={list.items}/>
 
-                             )
-                        }
+                        })
+                       
+                     }
                         
                     </Route>
-                    <Route path={`${path}/:category`}>
-                    <ItemPage />
+                    <Route path={`/shop/:category`}>
+                    <ItemPageWithSpinner isLoading={this.props.isFetching} />
                     </Route>
 
                 </Switch>
                 
             </div>
         )
+    }
+        
     
 }
 
 const mapStateToProps = state => ({
-    shopData: shopData(state)
+    shopData: state.shopData.shopData,
+    isFetching: state.shopData.isFetching
 })
-export default connect(mapStateToProps)(Shop);
+const mapDispatchToProps = dispatch =>({
+    fetchCollectionsStartAsync: () => dispatch(fetchCollectionsStartAsync())
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Shop);

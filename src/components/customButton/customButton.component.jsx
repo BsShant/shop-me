@@ -1,13 +1,13 @@
 import React from  'react';
-import './customButton.styles.scss';
+import { RegularButton } from './customButton.styles';
 
 
-const CustomButton = ({children,google, ...others}) =>{
+const CustomButton = ({children,...others}) =>{
     return(
         
-            <button className= {`custom-button ${google? "google-button": ''}`} {...others}>
+            <RegularButton {...others}>
                 {children}
-            </button>
+            </RegularButton>
             
       
     )

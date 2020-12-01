@@ -1,21 +1,21 @@
 import React from 'react';
-import './checkout-items.styles.scss';
+import { CheckoutItemsContainer, CheckoutItemsField , CheckoutItemImage, ItemRemove, ItemQuantity, ItemPrice   } from './checkout-items.styles';
 import { connect } from 'react-redux';
 import {removeItem,shopItem, decreaseItem} from '../../store/action/index.action';
 
 const CheckoutItems = (props) =>{
     return(
-        <div className="checkout-items">
-            <div className="item-image"><img src={props.item.imageUrl} alt="Item" /></div>
-    <div className="item-name">{props.item.name}</div>
-    <div className="item-quantity">
-    <div className="increase-quantity" onClick={()=> props.decreaseItem(props.item)}>❮</div>
-    <span>{props.item.quantity}</span>
-    <div className="increase-quantity" onClick={()=> props.shopItem(props.item)}>❯</div>
-    </div>
-    <div className="item-price">${props.item.price}</div>
-            <div className="item-remove" onClick={()=>props.removeItem(props.item)}>&#10005;</div>
-        </div>
+        <CheckoutItemsField>
+            <CheckoutItemImage><img src={props.item.imageUrl} alt="Item" /></CheckoutItemImage>
+            <div>{props.item.name}</div>
+            <ItemQuantity>
+                <div onClick={()=> props.decreaseItem(props.item)}>❮</div>
+                <span>{props.item.quantity}</span>
+                <div onClick={()=> props.shopItem(props.item)}>❯</div>
+            </ItemQuantity>
+            <ItemPrice>${props.item.price}</ItemPrice>
+            <ItemRemove onClick={()=>props.removeItem(props.item)}>&#10005;</ItemRemove>
+        </CheckoutItemsField>
     )
 }
 const mapDispatchToProps = dispatch =>({

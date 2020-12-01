@@ -1,5 +1,5 @@
 import React from 'react';
-import './register.styles.scss';
+import { RegisterField } from './register.styles';
 import {auth, createUserProfile} from '../../firebase/firebase.utils';
 import InputField from '../inputField/inputField.component'; 
 import CustomButton from '../customButton/customButton.component'; 
@@ -43,26 +43,17 @@ class Register extends React.Component{
 
     render(){
         return(
-        <div className="register">
-            <h2>I don't have an account</h2>
-            <p>Register your new account</p>
-            <form onSubmit={this.onFormSubmit}>
-            <InputField handleChange={this.handleChange} label="Name" name="displayName" type="text" value={this.state.displayName}/>  
-            <InputField handleChange={this.handleChange} label="Email" name="email" type="email" value={this.state.email}/>
-            <InputField handleChange={this.handleChange} label="Password" name="password" type="password" value={this.state.password}/>
-            <CustomButton>Register</CustomButton>
-          
-            
-            
-        </form>
+        <RegisterField>
+                <h2>I don't have an account</h2>
+                <p>Register your new account</p>
+                <form onSubmit={this.onFormSubmit}>
+                    <InputField handleChange={this.handleChange} label="Name" name="displayName" type="text" value={this.state.displayName}/>  
+                    <InputField handleChange={this.handleChange} label="Email" name="email" type="email" value={this.state.email}/>
+                    <InputField handleChange={this.handleChange} label="Password" name="password" type="password" value={this.state.password}/>
+                    <CustomButton>Register</CustomButton>
+                </form>
+         </RegisterField>
         
-        
-         </div>
-        
-    )
-    }
-    
-
-    
+    )} 
 }
 export default Register;

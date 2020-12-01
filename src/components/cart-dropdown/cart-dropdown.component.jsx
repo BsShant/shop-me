@@ -1,5 +1,5 @@
 import React from 'react';
-import './cart-dropdown.styles.scss';
+import { CartDropdownContainer, CartDropdownList } from './cart-dropdown.styles';
 import Checkout from '../customButton/customButton.component';
 import { connect} from 'react-redux';
 import CartItem from '../cart-items/cart-item.compnent';
@@ -26,8 +26,8 @@ const CartDropdown = (props) =>{
 const history = useHistory();
 const dropdown = useRef(null)
     return(
-        <div className="cart-dropdown" ref={dropdown}>
-            <div className="cart-dropdown-list">
+        <CartDropdownContainer ref={dropdown}>
+            <CartDropdownList>
             
                 {
                     props.items.length?
@@ -44,18 +44,14 @@ const dropdown = useRef(null)
                 
                    
             
-            </div>
+            </CartDropdownList>
             
-            <Checkout style={
-                {
-                    boxShadow: `1px 5px 2px rgba(0,0,0,0.5)`
-                }
-            }
+            <Checkout
             onMouseUp={() =>
             {history.push('/checkout')
             return props.toggleCartDropdown()}}>
                 Checkout</Checkout>
-        </div>
+        </CartDropdownContainer>
         
 
     )

@@ -18,11 +18,13 @@ import Homepage from './pages/homepage/homepage.pages';
 import Header from './components/header/header.component';
 import Shop from './pages/shop/shop.component';
 import SignIn from './pages/signIn/signIn.page';
-import { auth, createUserProfile } from './firebase/firebase.utils';
+import { auth, createUserProfile, addCollectionAndItems } from './firebase/firebase.utils';
 import {setLoggedUser} from './store/action/index.action';
 import Checkout from './pages/checkout/checkout.page';
 import Profile from './pages/profile/profile.page';
+import { loggedUser } from './store/selectors/user.selector';
 
+import { createStructuredSelector} from 'reselect';
 import {connect} from 'react-redux';
 
 class App extends Component {
@@ -71,11 +73,11 @@ componentDidMount(){
   );
 }
 }
-const mapConnectToProps = state =>({
-  loggedUser: state.user.loggedUser
+const mapStateToProps = createStructuredSelector({
+  loggedUser: loggedUser,
 })
 const mapDispatchToProps = dispatch =>({
   setLoggedUser : user => dispatch(setLoggedUser(user))
 })
 
-export default connect(mapConnectToProps,mapDispatchToProps)(App);
+export default connect(mapStateToProps,mapDispatchToProps)(App);

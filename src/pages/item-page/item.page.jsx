@@ -12,10 +12,18 @@ import {
 
 const ItemPage = (props) =>{
     const {category} = useParams();
-    const shopItems = props.collection.filter(item =>{
+    var shopItems= null;
+    Object.keys(props.collection).forEach(key =>{
+        const list = props.collection[key];
+
+        if(category == list.routeName)
+        {
+            shopItems= list
         
-        return category=== item.routeName 
+        }
     })
+
+
     
     return(
         <div>
@@ -24,14 +32,21 @@ const ItemPage = (props) =>{
                     textAlign : 'center',
                     fontFamily: `'Lobster', cursive`
                 }
-            }>{shopItems[0].title.toUpperCase()}</h1>
+            }>{shopItems.title.toUpperCase()}</h1>
             <div className="items-container">
             
             {
-                shopItems.map(shopItem =>
-                    shopItem.items.map(item =><ShopItem key={item.id} item={item} />
-                    )
-                )
+              
+              
+                Object.keys(shopItems).map(key =>{
+                    if(key == 'items')
+                    {   const list = shopItems[key];
+                        return list.map(item=>{
+                            return <ShopItem item={item} key={item.id} />
+                        })
+                       
+                    }
+                })
             }
         </div>
         </div>
